@@ -43,40 +43,115 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
 
   var password = "";
   
-  //adding booleans,  converts true ===1 false === 0
-  // 
-
-  var typeCount= incUpper + incLower + incNumber + incSpecial;
+  // TESTING adding booleans,  converts true ===1 false === 0
+  // var typeCount= incUpper + incLower + incNumber + incSpecial;
   // console.log(typeof typeCount);
   // console.log(incUpper);
 
-  //creating an array of objects where argument names = keys
-  // and argument values = values   incLenth: true
 
-  var typeArray =[{incUpper}, {incLower}, {incNumber}, {incSpecial}];
+  //  **creating an array of objects.  where the element names become the
+  //  (object property names) & element values become (objet property values)
 
-  // access the true false value in the objects
-  // var key = typeArray[0];
+    var typeArray =[{incUpper}, {incLower}, {incNumber}, {incSpecial}];
+
+  // TESTING var key = typeArray[0];
   // key2 = key[Object.keys(key)[0]];
-
   // console.log(key2);
 
+  // **creating an array that will hold only the object types the user has chosen
+  // to be used with the
 
+    var userCondOptArray = [];
+
+  // **loop through the array and access the true/false value from the 
+  // objects in the array, build a new array 'userCondOptArray' that only contains
+  // elements of objects whos value is true
    
     for (var i=0; i < typeArray.length; i++){
 
+    // **assign array element to variable
+      getLogic = typeArray[i];
+    // **access true/false value and assign to variable
+      getBoolValue = getLogic[Object.keys(getLogic)[0]];
+      
+    //build 'userCondtOptAray' with true values only
+      if (getBoolValue===true) {
+            
+        userCondOptArray.push(typeArray[i]);
 
-    // assign array element to variable
-    getLogic = typeArray[i];
+      }
 
-    // access the value of the first objects property in order to test if it should be included
-
-    getBoolValue = getLogic[Object.keys(getLogic)[0]];
-    console.log(getBoolValue);
-
-
+      else {
+        
+      }
 
     };
+
+    // array to collect arrays
+    var arrayOfArrays =[];
+
+    //  loops over user selection and creates an array of random 
+    // arrays to call
+     for (var i = 0; i < userCondOptArray.length; i++){
+
+        var tempObject = userCondOptArray[i];
+
+        if(Object.keys(tempObject)[0]==="incUpper"){
+          arrayOfArrays.push(randomUpperCase);
+        }
+        else if (Object.keys(tempObject)[0]==="incLower"){
+          arrayOfArrays.push(randomLowerCase);
+        } 
+        else if (Object.keys(tempObject)[0]==="incSpecial"){
+          arrayOfArrays.push(randomSpecialCharCase);
+        } 
+        
+        else if (Object.keys(tempObject)[0]==="incNumber"){
+          arrayOfArrays.push(randomNumberCase);
+        };  
+
+     }
+
+    // var password = arrayOfArrays[3];
+    // console.log(password());
+
+
+
+     var i = 0;
+     var j = 0; 
+
+    //  while loop, to loop through the arrayOfArrys function over and over
+    // until the length count has been met
+
+     while (i <= incLength){
+
+       if (i <= incLength){
+
+        
+        var crazy = arrayOfArrays[j];
+        temp = crazy();
+        password = password + temp;
+        i++;
+        j++;
+          if (j === arrayOfArrays.length){
+            j=0;
+          }
+          
+               
+       }
+          
+
+     };
+
+
+    
+    // TESTING var test = userCondOptArray[0];
+    // var keyName = Object.keys(test)[0];
+    // console.log(keyName);
+    // console.log(arrayOfArrays);
+
+
+    
 };
 
 
@@ -85,7 +160,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
   function randomLowerCase(){
 
     var random = String.fromCharCode(Math.floor(Math.random()*26 +97));
-    // return random;
+    return random;
     // alert("poop");
   
   };
@@ -95,7 +170,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
   function randomUpperCase(){
   
     var random = String.fromCharCode(Math.floor(Math.random()*26 +65));
-    // return random;
+    return random;
     // alert("poop");
   
     };
@@ -103,7 +178,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
   function randomNumberCase(){
 
     var random = String.fromCharCode(Math.floor(Math.random()*10 +48));
-    // return random;
+    return random;
     // alert("poop");
   
     };
@@ -115,7 +190,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
   
     var symbols = '!@#$%^&*(){}[]=+-_?<>/,.';
     random =symbols[Math.floor(Math.random() * symbols.length)];
-    // return random;
+    return random;
     // alert("poop");
   
     };
