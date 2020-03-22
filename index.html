@@ -18,11 +18,11 @@
           <h2>Generate a Password</h2>
           <h3>Pick your Preferences</h3>
     
-          <!-- Numbers -->
+          <!-- NUMBERS -->
 
-          <form id="lengthFromUser">
+          <form>
             <label>How many characters (8-128)</label>
-            <input type = "text" id="lenghtFromUser" placeholder="length" >
+            <input type = "number" id="lengthFromUser" min="8" max="128" value="8">
           </form>
 
                     <!-- /UPPERCASE -->
@@ -37,13 +37,14 @@
             <input id="lowerCheckbox" type="checkbox" checked>Lower Case
           </label>
 
-          <!-- NUMBERS -->
+           <!-- SPECIAL CHARACTERS -->
+      
 
           <label class="btn btn-secondary active" >
             <input id="specialCheckbox" type="checkbox" checked> Special Characters
           </label>
 
-          <!-- SPECIAL CHARACTERS -->
+             <!-- NUMBERS -->
 
           <label class="btn btn-secondary active">
             <input id="numberCheckbox" type="checkbox" checked> Numbers

@@ -1,39 +1,85 @@
 
-
-// Assignment Code - geting value from box
+// setting variables for user input options
 var generateBtn = document.querySelector("#generate");
+
+var includesLength = document.querySelector("#lengthFromUser");
+var includesUpper = document.querySelector("#upperCheckbox");
+var includesLower = document.querySelector("#lowerCheckbox");
+var includesNumber = document.querySelector("#numberCheckbox");
+var includesSpecial = document.querySelector("#specialCheckbox");
+
+
+//console.log(+includesLength.value);
+//console.log(typeof includesLength.value);
 
 
 
 generateBtn.addEventListener("click", function(event) {
 
+  // setting variable to get current state of user selected options
 
-  var includesUpper = document.querySelector("#upperCheckbox");
-  var includesLower = document.querySelector("#lowerCheckbox");
-  var includesNumber = document.querySelector("#numberCheckbox");
-  var includesSpecial = document.querySelector("#specialCheckbox");
-  var includesLength = document.querySelector("#lengthFromUser");
+  var length = +includesLength.value;
+  var upper = includesUpper.checked;
+  var lower = includesLower.checked;
+  var number = includesNumber.checked;
+  var special = includesSpecial.checked;
 
-  console.log(includesLength);
+  // console.log(length,upper,lower, number, special);
 
-    //assigns variable to text area display "to display the password"
-  var passwordText = document.querySelector("#password");
+   //assigns variable to text area display "to display the password"
+
+   var passwordText = document.querySelector("#password");
+ 
+   passwordText = writePassword (length, upper, lower, number, special);
+
 
   // calls writepassword function and passes all the arguments
-
-  passwordText = writePassword (includesUpper, includesLower, includesNumber, includesSpecial, includesLength);
 
 
 });
 
 
-function writePassword(incUpper, incLower, incNumber, incSpecial, incLength) {
+function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
 
-console.log(incUpper.checked);
-// var showLenth = incLength.value;
-console.log(incLength);
+  var password = "";
+  
+  //adding booleans,  converts true ===1 false === 0
+  // 
+
+  var typeCount= incUpper + incLower + incNumber + incSpecial;
+  // console.log(typeof typeCount);
+  // console.log(incUpper);
+
+  //creating an array of objects where argument names = keys
+  // and argument values = values   incLenth: true
+
+  var typeArray =[{incUpper}, {incLower}, {incNumber}, {incSpecial}];
+
+  // access the true false value in the objects
+  // var key = typeArray[0];
+  // key2 = key[Object.keys(key)[0]];
+
+  // console.log(key2);
+
 
    
+    for (var i=0; i < typeArray.length; i++){
+
+
+    // assign array element to variable
+    getLogic = typeArray[i];
+
+    // access the value of the first objects property in order to test if it should be included
+
+    getBoolValue = getLogic[Object.keys(getLogic)[0]];
+    console.log(getBoolValue);
+
+
+
+    };
+};
+
+
 
 
   function randomLowerCase(){
@@ -118,14 +164,11 @@ console.log(incLength);
 
 
 
-}
+
 
 // Add event listener to generate button
 //AC - WHEN I click the button to generate a password
 
-
-
-  
 
 
 
