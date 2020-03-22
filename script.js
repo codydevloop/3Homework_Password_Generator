@@ -5,36 +5,35 @@ var generateBtn = document.querySelector("#generate");
 
 
 
-generateBtn.addEventListener("click", (e) {
+generateBtn.addEventListener("click", function(event) {
 
-  
+
+  var includesUpper = document.querySelector("#upperCheckbox");
+  var includesLower = document.querySelector("#lowerCheckbox");
+  var includesNumber = document.querySelector("#numberCheckbox");
+  var includesSpecial = document.querySelector("#specialCheckbox");
+  var includesLength = document.querySelector("#lengthFromUser");
+
+  console.log(includesLength);
+
+    //assigns variable to text area display "to display the password"
+  var passwordText = document.querySelector("#password");
+
+  // calls writepassword function and passes all the arguments
+
+  passwordText = writePassword (includesUpper, includesLower, includesNumber, includesSpecial, includesLength);
+
+
 });
 
 
-var includesUpper = document.querySelector("#upperCheckbox");
-var includesLower = document.querySelector("#lowerCheckbox");
-var includesNumber = document.querySelector("#numberCheckbox");
-var includesSpecial = document.querySelector("#specialCheckbox");
-var includesLength = doNotTrack.querySelector("#lenthFromUser");
+function writePassword(incUpper, incLower, incNumber, incSpecial, incLength) {
 
+console.log(incUpper.checked);
+// var showLenth = incLength.value;
+console.log(incLength);
 
-
-  //assigns variable to text area display "to display the password"
-var passwordText = document.querySelector("#password");
-
-// assgin
-
-passwordText = writePassword (includesUpper, includesLower, includesNumber, includesSpecial, ncludesLength)
-
-// Write password to the #password input element
-function writePassword(includesUpper, includesLower, includesNumber, includesSpecial, ncludesLength) {
-
-
-  //THEN I am presented with a series of prompts for password criteria
-
-
-
-
+   
 
 
   function randomLowerCase(){
@@ -113,12 +112,11 @@ function writePassword(includesUpper, includesLower, includesNumber, includesSpe
 // THEN the password is either displayed in an alert or written to the page
 
   //variable password= results for generatePassword - not declared
-  var password = generatePassword();
+ 
 
 
 
-  //dislplays our new password we generated
-  passwordText.value = password;
+
 
 }
 
@@ -130,11 +128,4 @@ function writePassword(includesUpper, includesLower, includesNumber, includesSpe
   
 
 
-
-
-generateBtn.addEventListener("click", (e) {
-  var pwLength = prompt("Enter passwork length.  (8-128)");
-  alert("you crazy fool");;
-  
-});
 

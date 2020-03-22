@@ -17,35 +17,36 @@
         <div class="card-header">
           <h2>Generate a Password</h2>
           <h3>Pick your Preferences</h3>
-          
-          <!-- /UPPERCASE -->
+    
+          <!-- Numbers -->
 
-          <form id="lenthFromUser">
+          <form id="lengthFromUser">
             <label>How many characters (8-128)</label>
-            <input id="lenghtFromUser">
+            <input type = "text" id="lenghtFromUser" placeholder="length" >
           </form>
 
+                    <!-- /UPPERCASE -->
 
-          <label class="btn btn-secondary active" id="upperCheckbox">
-            <input type="checkbox" checked>Upper Case
+          <label class="btn btn-secondary active" >
+            <input id="upperCheckbox" type="checkbox" checked >Upper Case
           </label>
 
           <!-- LOWERCASE -->
 
-         <label class="btn btn-secondary active" id="lowerCheckbox">
-            <input type="checkbox" checked>Lower Case
+         <label class="btn btn-secondary active" >
+            <input id="lowerCheckbox" type="checkbox" checked>Lower Case
           </label>
 
           <!-- NUMBERS -->
 
-          <label class="btn btn-secondary active" id="numberCheckbox">
-            <input type="checkbox" checked> Special Characters
+          <label class="btn btn-secondary active" >
+            <input id="specialCheckbox" type="checkbox" checked> Special Characters
           </label>
 
           <!-- SPECIAL CHARACTERS -->
 
-          <label class="btn btn-secondary active" id="specialCheckbox">
-            <input type="checkbox" checked> Numbers
+          <label class="btn btn-secondary active">
+            <input id="numberCheckbox" type="checkbox" checked> Numbers
           </label>
         </div>
         <div class="card-body">
