@@ -30,7 +30,8 @@ generateBtn.addEventListener("click", function(event) {
 
    var passwordText = document.querySelector("#password");
  
-   passwordText = writePassword (length, upper, lower, number, special);
+   passwordText.innerHTML = writePassword (length, upper, lower, number, special);
+   //console.log (passwordText);
 
 
   // calls writepassword function and passes all the arguments
@@ -123,35 +124,36 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
     //  while loop, to loop through the arrayOfArrys function over and over
     // until the length count has been met
 
-     while (i <= incLength){
-
-       if (i <= incLength){
-
-        
-        var crazy = arrayOfArrays[j];
-        temp = crazy();
-        password = password + temp;
-        i++;
-        j++;
-          if (j === arrayOfArrays.length){
-            j=0;
-          }
-          
-               
-       }
-          
-
-     };
-
-
+    if (incLength < 8 || incLength > 128 || arrayOfArrays.length<1) {
+      alert("Please make sure you check some option and that your length is between 8-128");
+      return password;
+    } 
+    else{
     
-    // TESTING var test = userCondOptArray[0];
-    // var keyName = Object.keys(test)[0];
-    // console.log(keyName);
-    // console.log(arrayOfArrays);
-
-
     
+      while (i <= incLength){
+
+            if (i <= incLength){
+
+            
+            var crazy = arrayOfArrays[j];
+            temp = crazy();
+            password = password + temp;
+            i++;
+            j++;
+              if (j === arrayOfArrays.length){
+                j=0;
+              }
+              
+                    
+            }
+              
+
+          };
+
+      return password;
+    }
+
 };
 
 
@@ -161,7 +163,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
 
     var random = String.fromCharCode(Math.floor(Math.random()*26 +97));
     return random;
-    // alert("poop");
+    
   
   };
   
@@ -171,7 +173,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
   
     var random = String.fromCharCode(Math.floor(Math.random()*26 +65));
     return random;
-    // alert("poop");
+    
   
     };
 
@@ -179,7 +181,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
 
     var random = String.fromCharCode(Math.floor(Math.random()*10 +48));
     return random;
-    // alert("poop");
+    
   
     };
     
@@ -191,7 +193,7 @@ function writePassword(incLength, incUpper, incLower, incNumber, incSpecial) {
     var symbols = '!@#$%^&*(){}[]=+-_?<>/,.';
     random =symbols[Math.floor(Math.random() * symbols.length)];
     return random;
-    // alert("poop");
+    
   
     };
   
